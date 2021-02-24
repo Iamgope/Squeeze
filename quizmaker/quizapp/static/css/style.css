@@ -1,0 +1,14 @@
+.x {
+    width: 400px;
+}
+
+.y {
+    display: flex;
+    justify-content: center;
+    margin-top: 250px;
+}
+
+body{
+    background-color: rgb(214,214,214);
+}
+
