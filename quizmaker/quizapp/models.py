@@ -12,5 +12,10 @@ class Questions(models.Model):
     def __str__(self):
         return f"Question {self.pk}"
 
+class Quizzes(models.Model):
+    name = models.CharField(max_length=200)
+    questions = models.ManyToManyField(Questions)
 
-    
+    def __str__(self):
+        return self.name
+     
