@@ -10,7 +10,7 @@ class Questions(models.Model):
     correct = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.pk
+        return f"Question {self.pk}"
 
 
     
