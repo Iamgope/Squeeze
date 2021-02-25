@@ -8,10 +8,33 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <style>
+        #footer {
+      width: 0%;
+}
+     </style>
 </head>
 
 <body >
-	<footer>
+    <nav class="container navbar navbar-light" style="background-color: black;" >
+		<div class="container-fluid">
+	    <div class="navbar-header">
+	      	<a class="navbar-brand" href="../">Squeeze</a>
+	    </div>
+	    <ul class="nav navbar-nav" style="float: right">
+	      	<li><a href="../create">Create a quiz</a></li>
+	      	<li><a href="../take">Take a quiz</a></li>
+	      	<li><a href="../about">About Us</a></li>
+	      	<li><a href="../login">Login</a></li>
+	    </ul>
+	  </div>
+		  
+	</nav>
+
+    {% block content %}
+    {% endblock %}
+
+	<footer style="background-color: black;">
 
       <div class="container">
         <div class="row">
