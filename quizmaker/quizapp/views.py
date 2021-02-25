@@ -4,4 +4,4 @@ from django.shortcuts import render
 def landingPage(request):
     return render(request, 'landing.html', {})
 def signinPage(request):
-    return render(request, 'signin.html', {})
+    return render(request, 'give_quiz.html', {})
