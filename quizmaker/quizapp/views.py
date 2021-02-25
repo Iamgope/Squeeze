@@ -1,14 +1,15 @@
 from django.shortcuts import render
-
+from .models import Questions,Quizzes
+from django.utils import timezone
 # create a dictionary 
-context = { 
-    "quiz" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
-} 
+
     # return response 
     # return render(request, "geeks.html", context) 
 
 # Create your views here.
 def landingPage(request):
     return render(request, 'landing.html', {})
-def signinPage(request):
-    return render(request, 'give_quiz.html', context)
+
+def quizPage(request):
+    quizz =  Questions.objects.order_by('question')
+    return render(request,'give_quiz.html',{'quiz':quizz})

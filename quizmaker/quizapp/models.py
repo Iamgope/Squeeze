@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class Questions(models.Model):
@@ -8,6 +9,7 @@ class Questions(models.Model):
     opt3 = models.CharField(max_length=200)
     opt4 = models.CharField(max_length=200)
     correct = models.CharField(max_length=200)
+    
 
     def __str__(self):
         return f"Question {self.pk}"
