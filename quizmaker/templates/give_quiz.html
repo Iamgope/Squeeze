@@ -8,20 +8,40 @@
 
 			<div class="container" style="display: inline;">
 				<h3>Here are all the questions</h3>
+				{% for que in quiz %}
 				<div class="container" style="display: flex; border: 2px dashed black; padding: 10px; margin: 5px;">
-					<h4 style="padding: 10px;">Q 1</h4>
+					<h4 style="padding: 10px;">Q {{ que }}</h4>
 					<div style="padding: 10px;" class="question">
-						<h5>What is your name?</h5>
-						<ul >
-							<li style="border: 1px solid gray; padding: 10px; border-radius: 5px; margin: 3px;">Manish</li>
-							<li style="border: 1px solid gray; padding: 10px; border-radius: 5px; margin: 3px;">Aman</li>
-							<li style="border: 1px solid gray; padding: 10px; border-radius: 5px; margin: 3px;">Razi</li>
-							<li style="border: 1px solid gray; padding: 10px; border-radius: 5px; margin: 3px;">None of the above</li>
-						</ul>
+						<h5>What is your name -> {{ que }}?</h5>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="{{ que }}" id="{{ que }}.1" value="option1">
+							<label class="form-check-label" for="{{ que }}.1">
+								Manish -> {{ que }}
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="{{ que }}" id="{{ que }}.2" value="option2">
+							<label class="form-check-label" for="{{ que }}.2">
+								Razi -> {{ que }}
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="{{ que }}" id="{{ que }}.3" value="option3">
+							<label class="form-check-label" for="{{ que }}.3">
+								Aman -> {{ que }}
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="{{ que }}" id="{{ que }}.4" value="option4">
+							<label class="form-check-label" for="{{ que }}.4">
+								None of the above
+							</label>
+						</div>
 					</div>
 
 
 				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</section>
