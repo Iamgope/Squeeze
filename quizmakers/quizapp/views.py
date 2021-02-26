@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Questions,Quizzes
+from .models import Question,Quiz
 from django.utils import timezone
 # create a dictionary 
 
@@ -11,5 +11,6 @@ def landingPage(request):
     return render(request, 'landing.html', {})
 
 def quizPage(request):
-    quizz =  Quizzes.objects.all
+    quizz =  Quiz.objects.all
+
     return render(request,'give_quiz.html',{'quiz':quizz})
