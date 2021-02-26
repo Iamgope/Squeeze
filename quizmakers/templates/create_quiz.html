@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section style=" text-align:'center' ">
+	<div class="container jumbotron">
+		<h3>Here you can create a quiz!</h3>
+		<form action="" method="POST">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="quiz_name">Name of the Quiz</label>
+				<input type="text" class="form-control" name="quiz_name">
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</section>
+
+{% endblock %}
