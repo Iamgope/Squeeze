@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Question,Quiz
 from django.utils import timezone
 
@@ -7,9 +7,12 @@ def landingPage(request):
     return render(request, 'landing.html', {})
 
 def quizPage(request):
-    quizz =  Quiz.objects.all
+    quiz =  Quiz.objects.all
+    return render(request,'give_quiz.html',{'quiz':quiz})
 
-    return render(request,'give_quiz.html',{'quiz':quizz})
+def quiz_detail(request, pk):
+    quiz = get_object_or_404(Quiz, pk=pk)
+    return render(request, 'quiz_detail.html', {'quiz': quiz})
 
 def addQuiz(request):
     if request.method == 'POST':
