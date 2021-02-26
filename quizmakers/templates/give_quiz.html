@@ -1,22 +1,33 @@
 {% extends 'base.html' %}
+
  {% block content %}
 	<section style=" text-align:'center'">
 		<div class="container">
-			<h1>
-				Create quiz
-			</h1>
             
 			<div class="container" style="display: inline;">
-				<h3>Here are all the questions</h3>
+				<h3>Here are all the quizzes so far!</h3>
 				
 			</div>
-			{% for i in quiz %}
-
-			<h1><a href="{% url 'quizapp:quiz_detail' pk=i.pk %}">{{ i.name}}</a></h1>
+	
 			
-			{% endfor %}
-
-
-		</div>
-	</section>
+					  
+			  <table class="table">
+				<thead class="thead-light">
+				  <tr>
+					<th scope="col">Name</th>
+					<th scope="col">Link</th>
+				  </tr>
+				</thead>
+				<tbody>
+					{% for i in quiz %}
+				  <tr>
+					
+					<td>{{i.name}}</td>
+					<td><a href="{% url 'quizapp:quiz_detail' pk=i.pk %}">Give Quiz</a></td>
+				
+				  </tr>
+				  {% endfor %}
+				</tbody>
+			  </table>
+			</section>	
 	{% endblock %}
