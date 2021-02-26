@@ -11,5 +11,5 @@ def landingPage(request):
     return render(request, 'landing.html', {})
 
 def quizPage(request):
-    quizz =  Questions.objects.order_by('question')
+    quizz =  Quizzes.objects.filter(pk = 1)
     return render(request,'give_quiz.html',{'quiz':quizz})
