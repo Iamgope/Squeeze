@@ -1,4 +1,4 @@
-from os import name
+from os import name, truncate
 from django.db import models
 
 # Create your models here.
@@ -17,7 +17,7 @@ class Question(models.Model):
     opt4 = models.CharField(max_length=200)
     correct = models.CharField(max_length=200)
 
-    quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE,related_name='questions')
+    quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE,related_name='questions',blank=True)
     
 
     def __str__(self):

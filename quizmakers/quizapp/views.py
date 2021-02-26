@@ -16,6 +16,7 @@ def addQuiz(request):
         quiz = Quiz()
         quiz.name = request.POST.get('quiz_name')
         quiz.save()
-        return render(request, 'create_question.html', { quiz: quiz })
+        quiz = Quiz.objects.all().last()
+        return render(request, 'create_question.html', {'quiz': quiz })
     else:
         return render(request, 'create_quiz.html')
