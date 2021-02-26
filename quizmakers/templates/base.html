@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +9,17 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+  <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
+
+</head>
+<style>
+
+</style>
 <body >
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="{% url 'quizapp:landing' %}">Squeeze</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,39 +44,49 @@
         </div>
       </div>
     </div>
+  </nav>-->
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fa fa-bars"></i>
+    </label>
+    <label class="logo">Squeeze</label>
+    <ul>
+      <li class="nav-item "><a class="active" href="">Home</a></li>
+      <li class="nav-item "><a class="nav-link" href="{% url 'quizapp:quiz' %}">Give quiz</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'quizapp:create' %}">Create quiz</a></li>
+      <li class="nav-item "><a class="nav-link" href="#">About Us</a></li>
+      <li class="nav-item "> <a class="nav-link" href="#">Login</a></li>
+    </ul>
   </nav>
-
     {% block content %}
     {% endblock %}
 
-	<footer style="text-align: center; max-height: 80px;">
+	<!-- Site footer -->
+	<footer class="site-footer">
+		<div class = "container">
 
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Copyright&nbsp;© Squeeze 2021</span>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#"><i class="fa fa-twitter"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-              <li class="list-inline-item"><a href="#">Terms of Use</a></li>
-            </ul>
-          </div>
+			<div class="grid-container">
+				<div class="grid-item">
+					
+          <label class="logo">Squeeze</label>
+
         </div>
-      </div>
+
+				<div class="grid-item">
+					<div class = "social-buttons">
+						<a href= ""><i class=" fa fa-instagram circle-icon"></i></a>
+						<a href= ""><i class="fa fa-facebook circle-icon"></i></a>
+						<a href= ""><i class=" fa fa-twitter circle-icon"></i></a>
+					</div>
+				</div>   
+			</div>
+			<hr>
+
+			<p>Copyright © 2021  All rights reserved to Squeeze team</p>
+
+		</div>
+	</footer>
     
 	</footer>
 </body>	
