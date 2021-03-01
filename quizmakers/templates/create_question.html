@@ -4,9 +4,9 @@
 <section style=" text-align:'center' ">
 	<div class="container jumbotron">
 		<h3>Now, add questions to the quiz <strong>{{ quiz.name }}</strong></h3>
-		<form action="" method="POST">
+		<form action="" method="POST" class="post-form">
 			{% csrf_token %}
-			<label for="question">Question</label>
+			<!--<label for="question">Question</label>
 			<div class="input-group mb-3">
 				<input type="text" class="form-control">
 			</div>
@@ -33,7 +33,9 @@
 					<span class="input-group-text">Option 4</span>
 				</div>
 				<input type="text" class="form-control">
-			</div>
+			</div>-->
+
+			{{ form.as_p }}
 			
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
