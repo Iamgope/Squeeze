@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block content %}
-<div class="Butt">
 
-
-    <div class="container" style="display: flex;  padding: 10px; margin: 5px;">
-
-<a href="{% url 'quizapp:add_question' pk=PK %}"><button type="button" style="padding: 10%; margin:50px" >
-    add more
-    </button></a>
-    
-     <a href="{% url 'quizapp:landing' %}" ><button type="button" style="padding: 10%; margin:50px"  >
-         exit anyway
-         </button></a>
-     </a>
-
+<div class="jumbotron">
+    <div class="container">
+        <div class="row justify-content-around">
+            <div class="col-4">
+                <a href="{% url 'quizapp:add_question' pk=PK %}">
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Add more questions</button>
+                </a>
+            </div>
+            <div class="col-4">
+                <a href="{% url 'quizapp:landing' %}">
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Thanks, I'm done!</button>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
+
 {% endblock %}
