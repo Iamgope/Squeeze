@@ -1,48 +1,37 @@
 {% extends 'base.html' %}
-{% load static %}
 {%block content %}
+
 <div class="container" style="padding: 80px;">
-<h1>{{quiz.name}}</h1>
-<form action="" method="post">
-	{% csrf_token %}
-{% for que in quiz.questions.all %}
-			<div class="container" style="display: flex; border: 2px dashed black; padding: 10px; margin: 5px;">
-				<h4 style="padding: 10px;">Que {{ que.pk }}</h4>
-				<div style="padding: 10px;" class="question">
-					<h5> {{ que.question }}?</h5>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="{{ que }}" id="{{ que }}.1" value="1">
-						<label class="form-check-label" for="{{ que }}.1">
-						<h6>{{que.opt1}}<h6>
-						</label>
+	<h1 class="border border-secondary rounded-pill text-center">{{quiz.name}}</h1>
+	<form action="" method="post">
+		{% csrf_token %}
+		<div class="quiz_body" style="min-height: 300px;">
+			{% for que in quiz.questions.all %}
+			<div class="card" style="margin: 20px 0;">
+				<h5 class="card-header"><strong>Que {{ que.pk }}</strong> {{ que.question }}?</h5>
+				<div class="card-body ">
+					<div class="custom-control custom-radio">
+						<input type="radio" name="{{ que }}" id="{{ que }}.1" value="1" class="custom-control-input">
+						<label class="custom-control-label" for="{{ que }}.1">{{que.opt1}}</label>
 					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="{{ que }}" id="{{ que }}.2" value="2">
-						<label class="form-check-label" for="{{ que }}.2">
-							<h6>{{que.opt2}}<h6>
-						</label>
+					<div class="custom-control custom-radio">
+						<input type="radio" name="{{ que }}" id="{{ que }}.2" value="2" class="custom-control-input">
+						<label class="custom-control-label" for="{{ que }}.2">{{que.opt2}}</label>
 					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="{{ que }}" id="{{ que }}.3" value="3">
-						<label class="form-check-label" for="{{ que }}.3">
-							<h6>{{que.opt3}}<h6>
-						</label>
+					<div class="custom-control custom-radio">
+						<input type="radio" name="{{ que }}" id="{{ que }}.3" value="3" class="custom-control-input">
+						<label class="custom-control-label" for="{{ que }}.3">{{que.opt3}}</label>
 					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="{{ que }}" id="{{ que }}.4" value="4">
-						<label class="form-check-label" for="{{ que }}.4">
-							<h6>{{que.opt4}}</h6>
-						</label>
+					<div class="custom-control custom-radio">
+						<input type="radio" name="{{ que }}" id="{{ que }}.4" value="4" class="custom-control-input">
+						<label class="custom-control-label" for="{{ que }}.4">{{que.opt4}}</label>
 					</div>
 				</div>
-			
 			</div>
-			
-			
 			{% endfor %}
-
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</form>
+		</div>
+		<button type="submit" class="btn btn-primary btn-lg btn-block ">Submit</button>
+	</form>
 </div>
 
 {% endblock %}
