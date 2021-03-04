@@ -2,6 +2,18 @@
 {% load static %}
 {% block content %}
 <div class="Butt">
-<a href="{% url 'quizapp:add_question' pk=PK %}"><button>Add More</button></a>
+
+
+    <div class="container" style="display: flex;  padding: 10px; margin: 5px;">
+
+<a href="{% url 'quizapp:add_question' pk=PK %}"><button type="button" style="padding: 10%; margin:50px" >
+    add more
+    </button></a>
+    
+     <a href="{% url 'quizapp:landing' %}" ><button type="button" style="padding: 10%; margin:50px"  >
+         exit anyway
+         </button></a>
+     </a>
+
 </div>
 {% endblock %}
