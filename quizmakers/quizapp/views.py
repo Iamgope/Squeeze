@@ -19,7 +19,23 @@ def quizPage(request):
 
 def quiz_detail(request, pk):
     quiz = get_object_or_404(Quiz, pk=pk)
-    return render(request, 'quiz_detail.html', {'quiz': quiz})
+    if request.method == 'POST':
+        response = request.POST
+        # print(response)
+        cor = 0
+        for i in response:
+            i = i.split(' ')
+            if i[0] == 'Question':
+                ans = Question.objects.get(pk=int(i[1])).correct
+                resp = response['Question '+i[1]]
+                # print(resp, ans)
+                if resp == ans:
+                    cor += 1
+        # print("No. of correct answers: ", cor, ".")
+        return render(request, 'result.html', {'quiz': quiz, 'correct': cor})
+        
+    else:
+        return render(request, 'quiz_detail.html', {'quiz': quiz})
 
 
 
