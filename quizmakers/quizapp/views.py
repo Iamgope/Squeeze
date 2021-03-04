@@ -55,7 +55,7 @@ def addQuestion(request,pk):
             quest.save()
             
        # quest=Question.objects.all().last()
-            return render(request,'create_question.html',{'form':form})
+            return render(request,'update.html',{'PK':pk})
     else:
         form = PostQuiz()
         return render(request,'create_question.html',{'form':form})
