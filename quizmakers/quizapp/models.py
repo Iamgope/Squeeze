@@ -10,12 +10,21 @@ class Quiz(models.Model):
         return self.name
 
 class Question(models.Model):
+    CORRECT_CHOICES = [
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+    ]
     question = models.CharField(max_length=2000)
     opt1 = models.CharField(max_length=200)
     opt2 = models.CharField(max_length=200)
     opt3 = models.CharField(max_length=200)
     opt4 = models.CharField(max_length=200)
-    correct = models.CharField(max_length=200)
+    correct = models.CharField(
+        max_length=1,
+        choices=CORRECT_CHOICES,
+    )
 
     quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE,related_name='questions',blank=True)
     
