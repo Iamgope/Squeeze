@@ -1,6 +1,4 @@
 .site-footer {
-    margin-top: 400px; /* Remove */
-      position: relative;
       background-color:#1A1F24;
       width: 100%;	
       bottom: 0; 
@@ -138,7 +136,7 @@
   @media only screen and (min-width: 992px) {
   
       .site-footer {
-          height: 260px;
+          height: 150px;
           bottom: 0;
       }
   

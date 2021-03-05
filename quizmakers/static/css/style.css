@@ -88,7 +88,11 @@
   section{
     background: url(bg1.jpg) no-repeat;
     background-size: cover;
-    height: calc(100vh - 80px);
   }
-  
+
+footer {
+	padding: 25px 0;
+	text-align: center;
+	border-top: 1px solid gray;
+}
 
