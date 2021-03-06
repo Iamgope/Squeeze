@@ -16,7 +16,7 @@ class Question(models.Model):
         ('3', '3'),
         ('4', '4'),
     ]
-    question = models.CharField(max_length=2000)
+    question = models.TextField()
     opt1 = models.CharField(max_length=200)
     opt2 = models.CharField(max_length=200)
     opt3 = models.CharField(max_length=200)
