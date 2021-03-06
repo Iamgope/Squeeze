@@ -11,21 +11,24 @@ from django.views.generic import (CreateView, DeleteView, DetailView, ListView,U
 
 # main landing Page
 def registerPage(request):
+    
+    if request.user.is_authenticated:
+        return redirect('quizapp:landing')
 	
-	
-	form = CreateUserForm()
-	if request.method == 'POST':
-		form = CreateUserForm(request.POST)
-		if form.is_valid():
-			form.save()
-			user = form.cleaned_data.get('username')
-			messages.success(request, 'Account was created for ' + user)
+    else:    
+        form = CreateUserForm()
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'Account was created for ' + user)
 
-			return redirect('/login/')
-			
+                return redirect('/login/')
+                
 
-	context = {'form':form}
-	return render(request, 'register.html', context)
+        context = {'form':form}
+        return render(request, 'register.html', context)
 
 def loginPage(request):
 	
@@ -37,7 +40,7 @@ def loginPage(request):
 
 		if user is not None:
 			login(request, user)
-			return redirect('')
+			return redirect('quizapp:landing')
 		else:
 			messages.info(request, 'Username OR password is incorrect')
 
@@ -47,17 +50,19 @@ def loginPage(request):
 def logoutUser(request):
 	logout(request)
 	return redirect('login')
-
+@login_required(login_url='quizapp:login')
 def landingPage(request):
     return render(request, 'landing.html', {})
 
 
 
+@login_required(login_url='quizapp:login')
 
 # quizPage and Details
 def quizPage(request):
     quiz =  Quiz.objects.all
     return render(request,'give_quiz.html',{'quiz':quiz})
+@login_required(login_url='quizapp:login')
 
 def quiz_detail(request, pk):
     quiz = get_object_or_404(Quiz, pk=pk)
@@ -83,6 +88,7 @@ def quiz_detail(request, pk):
 
 
 #creating quiz
+@login_required(login_url='quizapp:login')
 def addQuiz(request):
     
 
@@ -99,7 +105,7 @@ def addQuiz(request):
     else:
         return render(request, 'create_quiz.html')
 
-
+@login_required(login_url='quizapp:login')
 def addQuestion(request,pk):
     quiz = get_object_or_404(Quiz, pk=pk)
    
