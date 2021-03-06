@@ -7,9 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Quezee</title>
     <link rel="stylesheet" href="{% static 'css/1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body style="background-image: url('{% static 'images/land.jpeg' %}');">    <section >
-        <div class="single-slide-item slide-1 landing-page">
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fa fa-bars"></i>
+        </label>
+        <label class="logo">Squeeze</label>
+        <ul>
+          <li class="nav-item "><a class="nav-link" href="{% url 'quizapp:landing' %}">Home</a></li>
+          <li class="nav-item "><a class="nav-link" href="{% url 'quizapp:quiz' %}">Give quiz</a></li>
+          <li class="nav-item "><a class="nav-link" href="{% url 'quizapp:create' %}">Create quiz</a></li>
+          <li class="nav-item "><a class="nav-link" href="#">About Us</a></li>
+          <li class="nav-item "> <a class="nav-link" href="{% url 'quizapp:logout' %}">logout</a></li>
+        </ul>
+      </nav>    
+    
+    <div class="single-slide-item slide-1 landing-page">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -31,5 +47,6 @@
             </div>
         </div>
     </section>
+    
 </body>
 </html>
