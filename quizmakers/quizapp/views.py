@@ -31,25 +31,30 @@ def registerPage(request):
         return render(request, 'register.html', context)
 
 def loginPage(request):
-	
-	if request.method == 'POST':
-		username = request.POST.get('username')
-		password =request.POST.get('password')
 
-		user = authenticate(request, username=username, password=password)
+    if request.user.is_authenticated:
+	    return redirect('quizapp:landing')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password =request.POST.get('password')
 
-		if user is not None:
-			login(request, user)
-			return redirect('quizapp:landing')
-		else:
-			messages.info(request, 'Username OR password is incorrect')
+            user = authenticate(request, username=username, password=password)
 
-	context = {}
-	return render(request, 'login.html', context)
+            if user is not None:
+                login(request, user)
+                return redirect('quizapp:landing')
+            else:
+                messages.info(request, 'Username OR password is incorrect')
+
+        context = {}
+        return render(request, 'login.html', context)
 
 def logoutUser(request):
 	logout(request)
-	return redirect('login')
+	return redirect('quizapp:login')
+
+
 @login_required(login_url='quizapp:login')
 def landingPage(request):
     return render(request, 'landing.html', {})
@@ -57,7 +62,7 @@ def landingPage(request):
 
 
 @login_required(login_url='quizapp:login')
-
+ 
 # quizPage and Details
 def quizPage(request):
     quiz =  Quiz.objects.all

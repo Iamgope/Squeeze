@@ -11,5 +11,6 @@ urlpatterns = [
     path('add_question/<int:pk>',views.addQuestion, name='add_question'),
     path('register/', views.registerPage, name="register"),
     path('login/', views.loginPage, name="login"),  
+    path('logout/', views.logoutUser, name="logout"),
     #path('create_question/', views.addQuiz, name='create'),
 ]

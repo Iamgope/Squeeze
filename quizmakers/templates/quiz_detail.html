@@ -6,7 +6,9 @@
 	<form action="" method="post">
 		{% csrf_token %}
 		<div class="quiz_body" style="min-height: 300px;">
+		
 			{% for que in quiz.questions.all %}
+			
 			<div class="card" style="margin: 20px 0;">
 				<h5 class="card-header"><strong>Que {{ que.pk }}</strong> {{ que.question }}?</h5>
 				<div class="card-body ">
