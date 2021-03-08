@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.generic import (CreateView, DeleteView, DetailView, ListView,UpdateView)
-
+cool=False
 # main landing Page
 def registerPage(request):
     
@@ -33,7 +33,8 @@ def registerPage(request):
 def loginPage(request):
 
     if request.user.is_authenticated:
-	    return redirect('quizapp:landing')
+        
+        return redirect('quizapp:landing')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -42,6 +43,7 @@ def loginPage(request):
             user = authenticate(request, username=username, password=password)
 
             if user is not None:
+                cool=True
                 login(request, user)
                 return redirect('quizapp:landing')
             else:
@@ -55,9 +57,12 @@ def logoutUser(request):
 	return redirect('quizapp:login')
 
 
-@login_required(login_url='quizapp:login')
+
 def landingPage(request):
-    return render(request, 'landing.html', {})
+    if request.user.is_authenticated:
+        return render(request, 'navout.html')
+    else:
+        return render(request,'navin.html')
 
 
 
