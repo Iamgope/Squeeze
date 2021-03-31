@@ -68,6 +68,8 @@ def landingPage(request):
 
  
 # quizPage and Details
+@login_required(login_url='quizapp:login')
+
 def quizPage(request):
     if request.method=='POST':
         code=request.POST.get('code')
