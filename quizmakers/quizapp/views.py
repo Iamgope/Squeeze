@@ -71,8 +71,6 @@ def landingPage(request):
 def quizPage(request):
     if request.method=='POST':
         code=request.POST.get('code')
-        if code=="sampleQuiz":
-            return render(request,'sampleQuiz.html')
         quiz =  Quiz.objects.filter(code=str(code))
         if quiz:
             return redirect('/quiz/'+str(quiz[0].pk)+'' )
