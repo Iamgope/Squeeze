@@ -3,12 +3,12 @@
 {% block content %}
 <section style=" text-align:'center'">
 	<div class="container jumbotron">
+			<div class="container is-max-desktop">
+				<div class="notification">
+					<h3>Here is the result for the quiz :<strong>{{ quiz.name }}</strong></h3>
+					<h4>No. of correct responses is : <strong>{{correct}}</strong></h4>
 
-		<div class="container" style="display: inline;">
-			<h3>Here is the result for the quiz -> <strong>{{ quiz.name }}</strong></h3>
-
-		</div>
-			<h4>No. of correct responses is : <strong>{{correct}}</strong></h4>
-
+				</div>
+			  </div>
 </section>
 {% endblock %}

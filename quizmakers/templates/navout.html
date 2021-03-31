@@ -2,17 +2,17 @@
 
 {%block content%}
 <nav>
-    <input type="checkbox" id="check">
-    <label for="check" class="checkbtn">
-      <i class="fa fa-bars"></i>
-    </label>
-    <label class="logo">Squeeze</label>
-    <ul>
-      <li class="nav-item "><a class="nav-link" href="{% url 'quizapp:landing' %}">Home</a></li>
-      <li class="nav-item "><a class="nav-link" href="{% url 'quizapp:quiz' %}">Give quiz</a></li>
-      <li class="nav-item "><a class="nav-link" href="{% url 'quizapp:create' %}">Create quiz</a></li>
-      <li class="nav-item "><a class="nav-link" href="#">About Us</a></li>
-      <li class="nav-item "> <a class="nav-link" href="{% url 'quizapp:logout' %}">logout</a></li>
-    </ul>
-  </nav> 
+  <input type="checkbox" id="check">
+  <label for="check" class="checkbtn">
+    <i class="fa fa-bars"></i>
+  </label>
+  <label class="logo">Squeeze</label>
+  <ul>
+    <li class="nav-item "><a class="nav-link" href="{% url 'quizapp:landing' %}">Home</a></li>
+    <li class="nav-item "><a class="nav-link" href="{% url 'quizapp:quiz' %}">Give quiz</a></li>
+    <li class="nav-item "><a class="nav-link" href="{% url 'quizapp:create' %}">Create quiz</a></li>
+    <li class="nav-item "><a class="nav-link" href="#">About Us</a></li>
+    <li class="nav-item "> <a class="nav-link" href="{% url 'quizapp:logout' %}">logout</a></li>
+  </ul>
+</nav> 
 {% endblock %}

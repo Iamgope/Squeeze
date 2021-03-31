@@ -1,33 +1,40 @@
 {% extends 'base.html' %}
 
  {% block content %}
-	<section style=" text-align:'center'">
-		<div class="container">
-            
-			<div class="container" style="padding: 10px 25px;">
-				<h3>Here are all the quizzes so far!</h3>
-				
+
+ <div class="container is-widescreen">
+	<div class="notification ">
+		<form action="" method="POST">
+			{% csrf_token %}
+		<div class="field">
+			<label for ="code" class="label is-large"><h3>Have a Code</h3></label>
+			<div class="control has-icons-left has-icons-right">
+			  <input id="Inp" class="input is-large" name="code" placeholder="Write code">
+			 
 			</div>
+
+		</div>
+		<button  type="submit" class="button is-success">Go!</button>
+
+		</form>
 	
-			
-					  
-			  <table class="table">
-				<thead class="thead-light">
-				  <tr>
-					<th scope="col">Name</th>
-					<th scope="col">Link</th>
-				  </tr>
-				</thead>
-				<tbody>
-					{% for i in quiz %}
-				  <tr>
-					
-					<td>{{i.name}}</td>
-					<td><a href="{% url 'quizapp:quiz_detail' pk=i.pk %}">Give Quiz</a></td>
-				
-				  </tr>
-				  {% endfor %}
-				</tbody>
-			  </table>
-			</section>	
+	</div>
+  </div>
+  
+  <br/><br/>
+
+  <section class="section">
+	<h1 class="title">Try sample quiz</h1>
+	<h2 class="subtitle">
+	  A sample quiz for you all without any need of quiz code and without creating, any of the quiz .<br/>
+	  use code <strong>SampleQuiz</strong> for the sample quiz!
+
+	</h2>
+    
+  </section>
+ 
+  
+
+  
+  
 	{% endblock %}
