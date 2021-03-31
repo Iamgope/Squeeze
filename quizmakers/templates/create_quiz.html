@@ -2,7 +2,8 @@
 {% block content %}
 
 <section style=" text-align:'center' ">
-	<div class="container jumbotron">
+	<div class="container">
+		<div class="notification ">
 		<h3>Here you can create a quiz!</h3>
 		<form action="" method="POST">
 			{% csrf_token %}
@@ -16,6 +17,11 @@
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
+
+		{%if cool%}
+		<h1 style="color: red;">Code already exists! enter Another</h1>
+		{%endif%}
+	</div>
 	</div>
 </section>
 

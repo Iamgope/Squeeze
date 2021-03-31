@@ -77,10 +77,10 @@ def quizPage(request):
         if quiz:
             return redirect('/quiz/'+str(quiz[0].pk)+'' )
            
-        return render(request,'give_quiz.html',{'quiz':quiz})
+        return render(request,'give_quiz.html',{'quiz':quiz,'value':True})
     else:
         quiz =  Quiz.objects.all
-        return render(request,'give_quiz.html',{'quiz':quiz})
+        return render(request,'give_quiz.html',{'quiz':quiz,'value':False})
 
 
 @login_required(login_url='quizapp:login')
@@ -114,6 +114,11 @@ def addQuiz(request):
     
 
     if request.method == 'POST':
+       
+        cod=request.POST.get('code')
+        value =  Quiz.objects.filter(code=str(cod))
+        if value:
+            return render(request, 'create_quiz.html',{'cool':True})
         quiz = Quiz()
        
         quiz.name = request.POST.get('quiz_name')
@@ -125,7 +130,7 @@ def addQuiz(request):
         
         return redirect(s)
     else:
-        return render(request, 'create_quiz.html')
+        return render(request, 'create_quiz.html',{'cool':False})
 
 @login_required(login_url='quizapp:login')
 def addQuestion(request,pk):
