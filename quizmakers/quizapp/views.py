@@ -45,6 +45,8 @@ def loginPage(request):
             if user is not None:
                 cool=True
                 login(request, user)
+                if request.POST.get('next'):
+                    return redirect(request.POST.get('next'))
                 return redirect('quizapp:landing')
             else:
                 messages.info(request, 'Username OR password is incorrect')
@@ -54,15 +56,12 @@ def loginPage(request):
 
 def logoutUser(request):
 	logout(request)
-	return redirect('quizapp:login')
+	return redirect('quizapp:landing')
 
 
 
 def landingPage(request):
-    if request.user.is_authenticated:
-        return render(request, 'navout.html')
-    else:
-        return render(request,'navin.html')
+    return render(request,'landing.html')
 
 
 

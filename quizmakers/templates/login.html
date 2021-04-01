@@ -87,6 +87,11 @@
 				<div class="d-flex justify-content-center form_container">
 					<form method="POST" action="">
 						{% csrf_token %}
+						{% if request.GET.next %}
+							<input type="hidden" name="next" value="{{ request.GET.next }}">
+						{% else %}
+							<input type="hidden" name="next" value="">
+						{% endif %}
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
