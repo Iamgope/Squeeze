@@ -9,7 +9,7 @@
 - You can clone this repository and run  pip install -r requirements.txt 
 
 ### Basic Working
--You can create the quiz and set any code(which is initially not present) and share the code.
--users can access the quiz using that code
+- You can create the quiz and set any code(which is initially not present) and share the code.
+- Users can access the quiz using that code
 
 <p align="center">All contributions and issues are welcome.</p>
