@@ -6,7 +6,10 @@
 
 ### Demo and Local Set Up
 - Live demo can be found at [This Link](https://s-quizz.herokuapp.com) 🎉.
-- You can clone this repository and run  pip install -r requirements.txt 
+- You can clone this repository and run  
+	```python
+	pip install -r requirements.txt 
+	```
 
 ### Basic Working
 - You can create the quiz and set any code(which is initially not present) and share the code.
