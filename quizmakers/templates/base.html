@@ -30,7 +30,7 @@
     <label class="logo"><a class="nav-link" href="{% url 'quizapp:landing' %}">Squeeze</a></label>
     <ul>
       <li class="nav-item "><a class="nav-link" href="{% url 'quizapp:quiz' %}">Give quiz</a></li>
-      <li class="nav-item "><a class="nav-link" href="{% url 'quizapp:create' %}">Create quiz</a></li>
+      <li class="nav-item "><a class="nav-link" href="{% url 'quizapp:create' %}">Create a quiz</a></li>
       <li class="nav-item "><a class="nav-link" href="#">About Us</a></li>
       {% if request.user.is_authenticated %}
         <li class="">{{user.username}}</li>
